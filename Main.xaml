@@ -77,9 +77,9 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <State x:Name="__ReferenceID0" sap2010:Annotation.AnnotationText="Get next transaction input data" DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="231,97" sap2010:WorkflowViewState.IdRef="State_4">
+    <State x:Name="__ReferenceID0" sap2010:Annotation.AnnotationText="Get next transaction input data" DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="827,1120" sap2010:WorkflowViewState.IdRef="State_4">
       <State.Entry>
-        <Sequence sap2010:Annotation.AnnotationText="Data retrieval mechanism. The TransactionNumber variable holds the current transaction number. Incrementing this number means getting the next transaction. For a robot retry, the number is not increased, in case of application exception, until the max retry number.&#xA;TransactionItem type needs to be changed accordingly." DisplayName="Retrieve Data" sap:VirtualizedContainerService.HintSize="801,710" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence sap2010:Annotation.AnnotationText="Data retrieval mechanism. The TransactionNumber variable holds the current transaction number. Incrementing this number means getting the next transaction. For a robot retry, the number is not increased, in case of application exception, until the max retry number.&#xA;TransactionItem type needs to be changed accordingly." DisplayName="Retrieve Data" sap:VirtualizedContainerService.HintSize="801,706" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="ShouldStop" />
           </Sequence.Variables>
@@ -90,16 +90,16 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:ShouldStop DisplayName="Check Stop Signal" sap:VirtualizedContainerService.HintSize="779,22" sap2010:WorkflowViewState.IdRef="ShouldStop_1" Result="[ShouldStop]" />
-          <If Condition="[ShouldStop]" DisplayName="Should Stop or Get Next" sap:VirtualizedContainerService.HintSize="779,467" sap2010:WorkflowViewState.IdRef="If_8">
+          <If Condition="[ShouldStop]" DisplayName="Should Stop or Get Next" sap:VirtualizedContainerService.HintSize="779,463" sap2010:WorkflowViewState.IdRef="If_8">
             <If.Then>
-              <Sequence DisplayName="Orchestrator stop requested" sap:VirtualizedContainerService.HintSize="336,317" sap2010:WorkflowViewState.IdRef="Sequence_21">
+              <Sequence DisplayName="Orchestrator stop requested" sap:VirtualizedContainerService.HintSize="336,315" sap2010:WorkflowViewState.IdRef="Sequence_21">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Stop message" sap:VirtualizedContainerService.HintSize="314,93" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Info" Message="[&quot;Stop process requested&quot;]" />
+                <ui:LogMessage DisplayName="Log Stop message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Info" Message="[&quot;Stop process requested&quot;]" />
                 <Assign DisplayName="End Process" sap:VirtualizedContainerService.HintSize="314,60" sap2010:WorkflowViewState.IdRef="Assign_15">
                   <Assign.To>
                     <OutArgument x:TypeArguments="ui:QueueItem">[TransactionItem]</OutArgument>
@@ -111,7 +111,7 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <TryCatch DisplayName="Try GetTransactionData" sap:VirtualizedContainerService.HintSize="418,319" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+              <TryCatch DisplayName="Try GetTransactionData" sap:VirtualizedContainerService.HintSize="418,314" sap2010:WorkflowViewState.IdRef="TryCatch_5">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -132,7 +132,7 @@
                   </ui:InvokeWorkflowFile>
                 </TryCatch.Try>
                 <TryCatch.Catches>
-                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_6">
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_6">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -143,14 +143,14 @@
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Log exception message and End process" sap:VirtualizedContainerService.HintSize="336,52" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                      <Sequence DisplayName="Log exception message and End process" sap:VirtualizedContainerService.HintSize="336,315" sap2010:WorkflowViewState.IdRef="Sequence_13">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Fatal" Message="[Config(&quot;LogMessage_GetTransactionDataError&quot;).ToString+TransactionNumber.ToString+&quot;. &quot;+exception.Message+&quot; at Source: &quot;+exception.Source]" />
+                        <ui:LogMessage DisplayName="Log message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Error" Message="[Config(&quot;LogMessage_GetTransactionDataError&quot;).ToString+TransactionNumber.ToString+&quot;. &quot;+exception.Message+&quot; at Source: &quot;+exception.Source]" />
                         <Assign DisplayName="End Process" sap:VirtualizedContainerService.HintSize="314,60" sap2010:WorkflowViewState.IdRef="Assign_16">
                           <Assign.To>
                             <OutArgument x:TypeArguments="ui:QueueItem">[TransactionItem]</OutArgument>
@@ -325,7 +325,7 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <Transition.Condition>[SystemError IsNot Nothing]</Transition.Condition>
                   <Transition.To>
-                    <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Read Config, Init Applications" DisplayName="Init" sap:VirtualizedContainerService.HintSize="530,1950" sap2010:WorkflowViewState.IdRef="State_2">
+                    <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Read Config, Init Applications" DisplayName="Init" sap:VirtualizedContainerService.HintSize="234,88" sap2010:WorkflowViewState.IdRef="State_2">
                       <State.Entry>
                         <TryCatch DisplayName="Catch intialization exceptions" sap:VirtualizedContainerService.HintSize="504,1536" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                           <sap:WorkflowViewStateService.ViewState>
@@ -375,11 +375,11 @@
                                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InitAllSettings workflow" sap:VirtualizedContainerService.HintSize="314,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Framework\InitAllSettings.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
                                         <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFile">Data\Config.xlsx</InArgument>
-                                        <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigSheets">[{"Settings", "Constants"}]</InArgument>
+                                        <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigSheets">[{"Settings","Constants"}]</InArgument>
                                         <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Config">[Config]</OutArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
                                     </ui:InvokeWorkflowFile>
-                                    <Sequence sap2010:Annotation.AnnotationText="Save job arguments with values to Config, using the argument's name as keyname. &#xA;매개변수로 넘어오는 2개의 Queue이름 처리 &#xA;- in_DataQueueName : 작업을 위해서 소비할 데이터 큐 이름 &#xA;- in_ResultQueueName: 작업 결과를 저장할 데이터 큐 이름 (Optional) " DisplayName="Save job arguments Config" sap:VirtualizedContainerService.HintSize="314,243" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                    <Sequence sap2010:Annotation.AnnotationText="Save job arguments with values to Config, using the argument's name as keyname. &#xA;매개변수로 넘어오는 2개의 Queue이름 처리 &#xA;- in_DataQueueName : 작업을 위해서 소비할 데이터 큐 이름 &#xA;- in_ResultQueueName: 작업 결과를 저장할 데이터 큐 이름 (Optional) " DisplayName="Save job arguments Config" sap:VirtualizedContainerService.HintSize="603,756" sap2010:WorkflowViewState.IdRef="Sequence_22">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -416,7 +416,7 @@
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                         <If.Then>
-                                          <Assign DisplayName="Add DataQueueName" sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_20">
+                                          <Assign DisplayName="Add ResultQueueName" sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_20">
                                             <Assign.To>
                                               <OutArgument x:TypeArguments="x:Object">[Config("ResultQueueName")]</OutArgument>
                                             </Assign.To>
